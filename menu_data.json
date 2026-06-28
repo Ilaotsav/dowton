@@ -1,0 +1,6 @@
+{
+  "1": [
+    {"nombre": "Salchipapas", "precio": 6.8, "descripcion": "Salchipapas con salsas y toppings.", "imagen": "menu_recortes/43_salchipapas.png"},
+    {"nombre": "Papas Fritas x Kilos", "precio": 5.8, "descripcion": "Papas fritas servidas por kilo.", "imagen": "menu_recortes/44_papas_fritas_x_kilos.png"}
+  ]
+}
