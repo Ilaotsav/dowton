@@ -1,116 +1,90 @@
-const IMAGE_MAP = {
-  'salchipapas': 'menu_recortes/43_salchipapas.png',
-  'papas fritas x kilos': 'menu_recortes/44_papas_fritas_x_kilos.png',
-  'racion de chistoras': 'menu_recortes/45_racion_de_chistoras.png',
-  'pastelito de carne': 'menu_recortes/46_pastelito_de_carne.png',
-  'pastelito de pollo': 'menu_recortes/51_pastelito_de_pollo.png',
-  'mini empanadas surtidas': 'menu_recortes/Mini_empanadas_surtidas.png',
-  'combo mini empanadas': 'menu_recortes/50_combo_mini_empanadas.png',
-  'tequenos de capresa x5': 'menu_recortes/48_tequenos_de_capresa_x5.png',
-  'tequenos de chistorra x5': 'menu_recortes/53_tequenos_de_chistorra_x5.png',
-  'tequenos de queso x5': 'menu_recortes/54_tequenos_de_queso_x5.png',
-  'tequenos de papas x5': 'menu_recortes/Tequeños_de_papa.png',
-  'racion de nuggets con papas': 'menu_recortes/49_racion_de_nuggets_con_papas.png',
-  'hamburguesa carne': 'menu_recortes/13_hamburguesa_carne.png',
-  'hamburguesa doble carne': 'menu_recortes/14_hamburguesa_doble_carne.png',
-  'granjero pollo': 'menu_recortes/11_granjero_pollo.png',
-  'choripan juan canalla': 'menu_recortes/10_choripan_juan_canalla.png',
-  'combo choripan canalla': 'menu_recortes/12_combo_choripan_canalla.png',
-  'menu ejecutivo': 'menu_recortes/Menu_ejecutivo.png',
-  'perros normales': 'menu_recortes/24_perros_normales.png',
-  'combo 3 perros calientes': 'menu_recortes/23_combo_3_perros_calientes.png',
-  '1/8 pepperoni': 'menu_recortes/15_1-8_peperoni.png',
-  '1/4 pepperoni': 'menu_recortes/18_1-4_peperoni.png',
-  '1/8 campagnola': 'menu_recortes/CAMPANOLA.jpg',
-  '1/4 campagnola': 'menu_recortes/CAMPANOLA.jpg',
-  'capresa (entera)': 'menu_recortes/Capresa.png',
-  '1/8 margarita': 'menu_recortes/21_1-8_margarita.png',
-  '1/4 margarita': 'menu_recortes/20_1-4_margarita.png',
-  '1 pincho de lomito': 'menu_recortes/06_1_pincho_de_lomito.png',
-  'pinchos': 'menu_recortes/07_pinchos.png',
-  'parrilla': 'menu_recortes/08_parrillas.png',
-  'parrilla de carne': 'menu_recortes/09_parrilla_de_carne.png',
-  'cuba libre': 'menu_recortes/07_cuba_libre.png',
-  'destornillador': 'menu_recortes/08_destornillador.png',
-  'margarita': 'menu_recortes/10_margarita.png',
-  'margarita spicy': 'menu_recortes/39_margarita_spicy.png',
-  'gin tonic': 'menu_recortes/11_gin_tonic.png',
-  'mojito': 'menu_recortes/12_mojito.png',
-  'daiquiri de fresa': 'menu_recortes/09_daiquiri_de_fresa.png',
-  'daiquiri de durazno': 'menu_recortes/Daiquiri_de_durazno.png',
-  'shot de limon': 'menu_recortes/Shot_de_limon.png',
-  'shot de tequila': 'menu_recortes/15_shot_de_tequila.png',
-  'michelada': 'menu_recortes/28_michelada.png',
-  'aperol spritz': 'menu_recortes/aperol_spritz.png',
-  'smirnoff trago': 'menu_recortes/40_smirnoff_trago.png',
-  'stolichnaya trago': 'menu_recortes/36_stolichnaya_trago.png',
-  'vodka tonic': 'menu_recortes/35_vodka_tonic.png',
-  'casique': 'menu_recortes/38_casique.png',
-  'casique 500': 'menu_recortes/27_casique_500.png',
-  'santa teresa gran reserva': 'menu_recortes/60_santa_teresa_gran_reserva.png',
-  'santa teresa linaje': 'menu_recortes/34_santa_teresa_linaje_trago.png',
-  'trago silver old parr': 'menu_recortes/31_trago_silver_old_parr.png',
-  'old parr trago': 'menu_recortes/41_old_parr_trago.png',
-  'trago tanqueray ten': 'menu_recortes/32_trago_tanqueray_ten.png',
-  "buchanan's trago": 'menu_recortes/37_buchannas_trago.png',
-  'negroni': 'menu_recortes/29_negroni.png',
-  'moscow mule': 'menu_recortes/30_moscow_mule.png',
-  'smirnoff': 'menu_recortes/56_smirnoff.png',
-  'absolut': 'menu_recortes/55_vodka_absolut.png',
-  'stolichnaya': 'menu_recortes/01_vodka_stolichnaya.png',
-  'ron carupano cristalino': 'menu_recortes/67_ron_carupano_cristalino.png',
-  'ron cacique / cacique 500': 'menu_recortes/71_ron_cacique.png',
-  'ron carupano 6 años': 'menu_recortes/57_ron_carupano_6_anos.png',
-  'ron carupano 12 años': 'menu_recortes/63_ron_carupano_12_anos.png',
-  'ron carupano reserva lim.': 'menu_recortes/66_ron_carupano_reserva_limitada.png',
-  'black & white 0.75l': 'menu_recortes/62_black_and_white_075lts.png',
-  'black & white 1l': 'menu_recortes/72_black_and_white_1litro.png',
-  'old parr silver': 'menu_recortes/58_old_parr_silver.png',
-  'old parr': 'menu_recortes/68_old_parr.png',
-  "buchanan's": 'menu_recortes/65_buchanans.png',
-  "buchanan's 18 años": 'menu_recortes/04_buchanans_18_anos.png',
-  'promo whisky 12 años': 'menu_recortes/16_promocion_whisky_12_anos.png',
-  'tanqueray 10': 'menu_recortes/03_tanqueray_10.png',
-  'don julio reposado': 'menu_recortes/69_don_julio_reposado.png',
-  'arraigo silver': 'menu_recortes/59_tequila_arraigo_silver.png',
-  'volcanes de chile cab. sauv.': 'menu_recortes/05_volcanes_de_chile_cabernet_sauvignon.png',
-  'castellblanc cava': 'menu_recortes/64_vino_castellblanc_cava.png',
-  'aperol': 'menu_recortes/aperol.png',
-  'polar pilsen': 'menu_recortes/20_polar_pilsen.png',
-  'polar light': 'menu_recortes/21_polar_light.png',
-  'solera azul': 'menu_recortes/22_solera_azul.png',
-  'solera verde': 'menu_recortes/23_solera_verde.png',
-  'tobo polar light': 'menu_recortes/02_tobo_polar_light.png',
-  'tobo polar pilsen': 'menu_recortes/04_tobo_polar_pilsen.png',
-  'tobo zulia': 'menu_recortes/01_tobo_mixto_polar_light_y_pilsen.png',
-  'tobo mixto polar light + pilsen': 'menu_recortes/01_tobo_mixto_polar_light_y_pilsen.png',
-  'pepsi / golden lata 355ml': 'menu_recortes/11_pepsi_golden_lata_355ml.png',
-  'refresco litrón pepsi/7up/frescolita': 'menu_recortes/13_refresco_de_litron_pepsi_7up_frescolita.png',
-  'refresco de litro': 'menu_recortes/16_refresco_de_litro.png',
-  'maltin polar lata 355ml': 'menu_recortes/Maltin_polar_lata_355ml.png',
-  'maltin polar': 'menu_recortes/Maltin_polar.png',
-  'gatorade (varios sabores)': 'menu_recortes/12_gatorade_mandarina.png',
-  'té lipton 500ml': 'menu_recortes/18_te_lipton_durazno_o_limon_500ml.png',
-  'agua bienestar 600ml': 'menu_recortes/Agua_bienestar_600ml.png',
-  'agua minalba 600ml': 'menu_recortes/10_agua_minalba_600ml.png',
-  'minalba sparkling 500ml': 'menu_recortes/05_minalba_sparkling_pet_500ml.png',
-  'minalba sparkling 1l': 'menu_recortes/07_minalba_sparkling_pet_1l.png',
-  'minalba sparkling lata 355ml': 'menu_recortes/08_minalba_sparkling_soda_lata_355ml.png',
-  'aguakina (agua tónica)': 'menu_recortes/Aguakina_Agua_tonica.png',
-  'aguakina': 'menu_recortes/Aguakina_Agua_tonica.png',
-  'jugo durazno': 'menu_recortes/20_jugo_durazno.png',
-  'jugo de mora': 'menu_recortes/22_jugo_de_mora.png',
-  'jugo de fresa / vaso': 'menu_recortes/25_jugo_de_fresa.png',
-  'vaso jugo de naranja': 'menu_recortes/24_vaso_jugo_de_naranja.png',
-  'limonada frappé': 'menu_recortes/limonada_frappe.png',
-  'yukery botella 250ml': 'menu_recortes/23_yukery_botella_250ml.png',
-  'café expreso': 'menu_recortes/01_cafe_expreso.png',
-  'café americano': 'menu_recortes/05_cafe_americano.png',
-  'café negro grande': 'menu_recortes/06_cafe_negro_grande.png',
-  'café marrón pequeño': 'menu_recortes/04_cafe_marron_pequeno.png',
-  'toddy mediano': 'menu_recortes/03_toddy_frio_o_caliente_mediano.png',
-  'toddy grande': 'menu_recortes/02_toddy_frio_o_caliente_grande.png'
-};
+const IMAGE_FILES = [
+  '01_tobo_mixto_polar_light_y_pilsen.png',
+  '02_tobo_polar_light.png',
+  '04_tobo_polar_pilsen.png',
+  '05_minalba_sparkling_pet_500ml.png',
+  '06_agua_bienestar_600ml.png',
+  '07_minalba_sparkling_pet_1l.png',
+  '08_minalba_sparkling_soda_lata_355ml.png',
+  '09_aguakina_agua_tonica.png',
+  '10_agua_minalba_600ml.png',
+  '11_pepsi_golden_lata_355ml.png',
+  '12_gatorade_mandarina.png',
+  '13_refresco_de_litron_pepsi_7up_frescolita.png',
+  '16_refresco_de_litro.png',
+  '17_maltin_polar.png',
+  '18_te_lipton_durazno_o_limon_500ml.png',
+  '19_maltin_polar_lata_355ml.png',
+  '20_jugo_durazno.png',
+  '21_jugo_de_fresa_grande.png',
+  '22_jugo_de_mora.png',
+  '23_yukery_botella_250ml.png',
+  '24_vaso_jugo_de_naranja.png',
+  '25_jugo_de_fresa.png',
+  '26_limonada_frappe.png',
+  '27_casique_500.png',
+  '28_michelada.png',
+  '29_negroni.png',
+  '30_moscow_mule.png',
+  '31_trago_silver_old_parr.png',
+  '32_trago_tanqueray_ten.png',
+  '33_aperol_spritz.png',
+  '34_santa_teresa_linaje_trago.png',
+  '35_vodka_tonic.png',
+  '36_stolichnaya_trago.png',
+  '37_buchannas_trago.png',
+  '38_casique.png',
+  '39_margarita_spicy.png',
+  '40_smirnoff_trago.png',
+  '41_old_parr_trago.png',
+  '42_santa_teresa_gran_reserva_trago.png',
+  '43_salchipapas.png',
+  '44_papas_fritas_x_kilos.png',
+  '45_racion_de_chistoras.png',
+  '46_pastelito_de_carne.png',
+  '47_mini_empanadas_surtidas.png',
+  '48_tequenos_de_capresa_x5.png',
+  '49_racion_de_nuggets_con_papas.png',
+  '50_combo_mini_empanadas.png',
+  '51_pastelito_de_pollo.png',
+  '52_tequenos_de_papas_x5.png',
+  '53_tequenos_de_chistorra_x5.png',
+  '54_tequenos_de_queso_x5.png',
+  '55_vodka_absolut.png',
+  '56_smirnoff.png',
+  '57_ron_carupano_6_anos.png',
+  '58_old_parr_silver.png',
+  '59_tequila_arraigo_silver.png',
+  '60_santa_teresa_gran_reserva.png',
+  '61_aperol.png',
+  '62_black_and_white_075lts.png',
+  '63_ron_carupano_12_anos.png',
+  '64_vino_castellblanc_cava.png',
+  '65_buchanans.png',
+  '66_ron_carupano_reserva_limitada.png',
+  '67_ron_carupano_cristalino.png',
+  '68_old_parr.png',
+  '69_don_julio_reposado.png',
+  '70_santa_teresa_1796.png',
+  '71_ron_cacique.png',
+  '72_black_and_white_1litro.png',
+  'Agua_bienestar_600ml.png',
+  'Aguakina_Agua_tonica.png',
+  'aperol.png',
+  'aperol_spritz.png',
+  'Capresa.png',
+  'Daiquiri_de_durazno.png',
+  'limonada_frappe.png',
+  'Maltin_polar.png',
+  'Maltin_polar_lata_355ml.png',
+  'Menu_ejecutivo.png',
+  'Mini_empanadas_surtidas.png',
+  'santa_teresa_1796.png',
+  'santa_teresa_gran_reserva_trago.png',
+  'Shot_de_limon.png',
+  'Tequeños_de_papa.png',
+  'Tequila_Arraigo_Silver.png'
+];
 
 function normalizeName(name) {
   return (name || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
@@ -120,13 +94,57 @@ function normalizeKey(name) {
   return normalizeName(name).replace(/ /g, '');
 }
 
-const NORMALIZED_IMAGE_MAP = Object.fromEntries(
-  Object.entries(IMAGE_MAP).map(([key, value]) => [normalizeKey(key), value])
-);
+function baseImageName(fileName) {
+  return normalizeName(fileName.replace(/\.[^.]+$/, '').replace(/^\d+[_-]/, '').replace(/[-_]/g, ' '));
+}
 
 function getImageForItem(name) {
-  const key = normalizeKey(name);
-  return NORMALIZED_IMAGE_MAP[key] || IMAGE_MAP[normalizeName(name)] || null;
+  const target = normalizeName(name);
+  if (!target) return null;
+
+  const targetKey = normalizeKey(name);
+  const directMatch = IMAGE_FILES.find(file => {
+    const fileKey = normalizeKey(file.replace(/\.[^.]+$/, '').replace(/^\d+[_-]/, '').replace(/[-_]/g, ' '));
+    return fileKey === targetKey;
+  });
+
+  if (directMatch) {
+    return 'menu_recortes/' + directMatch;
+  }
+
+  let bestMatch = null;
+  let bestScore = 0;
+
+  for (const file of IMAGE_FILES) {
+    const fileBase = baseImageName(file);
+    if (!fileBase) continue;
+
+    const fileTokens = fileBase.split(' ').filter(Boolean);
+    const targetTokens = target.split(' ').filter(Boolean);
+    let score = 0;
+
+    if (fileBase === target) {
+      score = 100;
+    } else if (fileBase.includes(target) || target.includes(fileBase)) {
+      score = 90;
+    } else {
+      const overlap = fileTokens.filter(token => targetTokens.includes(token)).length;
+      if (overlap > 0) score = overlap * 20;
+
+      const strippedTarget = target.replace(/\b(de|del|la|el|y|a|o|con|para|por|x|und)\b/g, '').replace(/\s+/g, ' ').trim();
+      const strippedBase = fileBase.replace(/\b(de|del|la|el|y|a|o|con|para|por|x|und)\b/g, '').replace(/\s+/g, ' ').trim();
+      if (strippedTarget && strippedBase && (strippedTarget.includes(strippedBase) || strippedBase.includes(strippedTarget))) {
+        score = Math.max(score, 70);
+      }
+    }
+
+    if (score > bestScore) {
+      bestScore = score;
+      bestMatch = file;
+    }
+  }
+
+  return bestScore >= 55 ? 'menu_recortes/' + bestMatch : null;
 }
 
 const DATA = {
